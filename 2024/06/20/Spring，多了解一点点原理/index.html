@@ -16,21 +16,21 @@
   <meta name="author" content="Willow Kaze">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Kotlin语言等待资料补充 Android四大组件ActivityActivity是可见的部分。 所有的Activity都需要在AndriodManifest.xml中进行注册。注册声明放在&lt;application&gt;标签内，主Activity通过在&lt;activity&gt;标签内部加入&lt;intent-filter&gt;标签并在标签中添加以下声明： 12&lt;actio">
+    <meta name="description" content="Spring， SpringMVC， SpringBoot， SpringCloud   名称 概念    Spring IOC反转控制   SpringMVC 视图模型   在进行程序开发的时候，我们通常也会用到许多注解，但是它们通常具有不同的来源。  Spring常见注解     注解 说明    @Component、@Controller、@Service、@Repository 使用在类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin语言与Andriod程序设计">
-<meta property="og:url" content="https://willowkaze.github.io/2024/06/16/Kotlin%E8%AF%AD%E8%A8%80%E4%B8%8EAndriod%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="Spring，多了解一点点原理">
+<meta property="og:url" content="https://willowkaze.github.io/2024/06/20/Spring%EF%BC%8C%E5%A4%9A%E4%BA%86%E8%A7%A3%E4%B8%80%E7%82%B9%E7%82%B9%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="风柳轩">
-<meta property="og:description" content="Kotlin语言等待资料补充 Android四大组件ActivityActivity是可见的部分。 所有的Activity都需要在AndriodManifest.xml中进行注册。注册声明放在&lt;application&gt;标签内，主Activity通过在&lt;activity&gt;标签内部加入&lt;intent-filter&gt;标签并在标签中添加以下声明： 12&lt;actio">
+<meta property="og:description" content="Spring， SpringMVC， SpringBoot， SpringCloud   名称 概念    Spring IOC反转控制   SpringMVC 视图模型   在进行程序开发的时候，我们通常也会用到许多注解，但是它们通常具有不同的来源。  Spring常见注解     注解 说明    @Component、@Controller、@Service、@Repository 使用在类">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-16T12:29:38.000Z">
-<meta property="article:modified_time" content="2024-06-15T14:44:13.964Z">
+<meta property="article:published_time" content="2024-06-19T16:40:51.000Z">
+<meta property="article:modified_time" content="2024-06-15T17:17:09.508Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Kotlin语言与Andriod程序设计 - 风柳轩</title>
+  <title>Spring，多了解一点点原理 - 风柳轩</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Kotlin语言与Andriod程序设计"></span>
+            <span id="subtitle" data-typed-text="Spring，多了解一点点原理"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-16 20:29" pubdate>
-          2024年6月16日 晚上
+        <time datetime="2024-06-20 00:40" pubdate>
+          2024年6月20日 凌晨
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          198 字
+          515 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          2 分钟
+          5 分钟
         
       </span>
     
@@ -267,27 +267,179 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Kotlin语言与Andriod程序设计</h1>
+            <h1 id="seo-header">Spring，多了解一点点原理</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Kotlin语言"><a href="#Kotlin语言" class="headerlink" title="Kotlin语言"></a>Kotlin语言</h1><p>等待资料补充</p>
-<h1 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h1><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>Activity是可见的部分。</p>
-<p>所有的Activity都需要在<code>AndriodManifest.xml</code>中进行注册。注册声明放在<code>&lt;application&gt;</code>标签内，主Activity通过在<code>&lt;activity&gt;</code>标签内部加入<code>&lt;intent-filter&gt;</code>标签并在标签中添加以下声明：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.action.MAIN&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.category.LAUNCHER&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+                <h1 id="Spring，-SpringMVC，-SpringBoot，-SpringCloud"><a href="#Spring，-SpringMVC，-SpringBoot，-SpringCloud" class="headerlink" title="Spring， SpringMVC， SpringBoot， SpringCloud"></a>Spring， SpringMVC， SpringBoot， SpringCloud</h1><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>概念</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spring</td>
+<td>IOC反转控制</td>
+</tr>
+<tr>
+<td>SpringMVC</td>
+<td>视图模型</td>
+</tr>
+</tbody></table>
+<p>在进行程序开发的时候，我们通常也会用到许多注解，但是它们通常具有不同的来源。</p>
+<ul>
+<li>Spring常见注解</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Component、@Controller、@Service、@Repository</td>
+<td>使用在类上用于实例化Bean</td>
+</tr>
+<tr>
+<td>@Autowired</td>
+<td>使用在字段上用于根据类型依赖注入</td>
+</tr>
+<tr>
+<td>@Qualifier</td>
+<td>结合@Autowired一起使用用于根据名称进行依赖注入</td>
+</tr>
+<tr>
+<td>@Scope</td>
+<td>标注Bean的作用范围</td>
+</tr>
+<tr>
+<td>@Configuration</td>
+<td>指定当前类是一个 Spring配置类，当创建容器时会从该类上加载注解</td>
+</tr>
+<tr>
+<td>@ComponentScan</td>
+<td>用于指定 spring 在初始化容器时要扫描的包</td>
+</tr>
+<tr>
+<td>@Bean</td>
+<td>使用在方法上，标注将该方法的返回值存储到spring容器中</td>
+</tr>
+<tr>
+<td>@Import</td>
+<td>使用@Import导入的类会被 Spring加载到IOC容器中</td>
+</tr>
+<tr>
+<td>@Aspect、@Before、@After、@Around、@Pointcut</td>
+<td>用于面向切面编程（AOP）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>SpringMVC常见注解</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@RequestMapping</td>
+<td>用于映射请求路径，可以定义在类上和方法上。用于类上，则表示类中的所有的方法都是以该地址作为父路径</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>SpringBoot常见注解</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@SpringBootConfiguration</td>
+<td>组合了- @Configuration注解，实现配置文件的功能</td>
+</tr>
+<tr>
+<td>@EnableAutoConfiguration</td>
+<td>打开自动配置的功能，也可以关闭某个自动配置的选择</td>
+</tr>
+<tr>
+<td>@ComponentScan</td>
+<td>Spring组件扫描</td>
+</tr>
+</tbody></table>
+<h1 id="SpringMVC过程"><a href="#SpringMVC过程" class="headerlink" title="SpringMVC过程"></a>SpringMVC过程</h1><ol>
+<li>用户发送请求至前端控制器DispatcherServlet.</li>
+<li>DispatcherServlet收到请求调用HandlerMapping处理器映射器</li>
+<li>处理器映射器找到具体的处理器(可以根据xm!配置、注解进行查找)，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。</li>
+<li>DispatcherServlet调用HandlerAdapter处理器适配器.</li>
+<li>HandlerAdapter经过适配调用具体的处理器(Controller，也叫后端控制器)。</li>
+<li>Controller执行完成返回ModelAndView。</li>
+<li>HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet.</li>
+<li> DispatcherServlet将ModelAndView传给ViewReslover视图解析器。</li>
+<li>ViewReslover解析后返回具体View。</li>
+<li>DispatcherServlet根据View进行渲染视图(即将模型数据填充至视图中)</li>
+<li>DispatcherServlet响应用户</li>
+</ol>
 
-<p>Toast是Andriod提供的一种简单的提醒方式，用于传输短小的信息。Toast的使用非常简单，直接使用静态方法makeText即可,有上下文，文本内容，显示时常3个参数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Toast.makeText(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;text&quot;</span>, Toast.LENGTH_SHORT/Toast.LENGH_LONG).show()<br></code></pre></td></tr></table></figure>
-
-<p>Intent是Android程序中各组件</p>
-<h3 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h3><h3 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h3><h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h3><h2 id="BroadcastaReceiver"><a href="#BroadcastaReceiver" class="headerlink" title="BroadcastaReceiver"></a>BroadcastaReceiver</h2><h2 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h2><h1 id="Android-UI"><a href="#Android-UI" class="headerlink" title="Android UI"></a>Android UI</h1><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OkHttp"><a href="#OkHttp" class="headerlink" title="OkHttp"></a>OkHttp</h2><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2>
+<h1 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h1><h1 id="SpringBoot的启动原理"><a href="#SpringBoot的启动原理" class="headerlink" title="SpringBoot的启动原理"></a>SpringBoot的启动原理</h1><h1 id="IOC容器创建原理"><a href="#IOC容器创建原理" class="headerlink" title="IOC容器创建原理"></a>IOC容器创建原理</h1><h1 id="AOP底层原理"><a href="#AOP底层原理" class="headerlink" title="AOP底层原理"></a>AOP底层原理</h1>
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="category-chain-item">Java语言基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -298,8 +450,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Kotlin语言与Andriod程序设计</div>
-      <div>https://willowkaze.github.io/2024/06/16/Kotlin语言与Andriod程序设计/</div>
+      <div>Spring，多了解一点点原理</div>
+      <div>https://willowkaze.github.io/2024/06/20/Spring，多了解一点点原理/</div>
     </div>
     <div class="license-meta">
       
@@ -311,7 +463,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年6月16日</div>
+          <div>2024年6月20日</div>
         </div>
       
       
@@ -343,18 +495,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/06/20/Spring%EF%BC%8C%E5%A4%9A%E4%BA%86%E8%A7%A3%E4%B8%80%E7%82%B9%E7%82%B9%E5%8E%9F%E7%90%86/" title="Spring，多了解一点点原理">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring，多了解一点点原理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/06/15/%E4%BD%BF%E7%94%A8Hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%9D%A2/" title="使用Hexo-GitHub搭建个人的博客页面">
-                        <span class="hidden-mobile">使用Hexo-GitHub搭建个人的博客页面</span>
+                      <a href="/2024/06/16/Kotlin%E8%AF%AD%E8%A8%80%E4%B8%8EAndriod%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" title="Kotlin语言与Andriod程序设计">
+                        <span class="hidden-mobile">Kotlin语言与Andriod程序设计</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
