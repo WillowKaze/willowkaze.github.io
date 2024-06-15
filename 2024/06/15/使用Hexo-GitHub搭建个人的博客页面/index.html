@@ -16,15 +16,15 @@
   <meta name="author" content="Willow Kaze">
   <meta name="keywords" content="">
   
-    <meta name="description" content="使用hexo+github的原因？ 支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。  使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点被删除。  本文记录自己在搭建个人博客的一些过程和遇到的一些坑，并且记录相关的命令方便查阅。   搭建环境因为需要利用github服务器的资源搭载的相关功能，所以首先应当申请有">
+    <meta name="description" content="使用hexo+github的原因 支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。  使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点被删除。  本文记录自己在搭建个人博客的一些过程和遇到的一些坑，并且记录相关的命令方便查阅。   搭建环境因为需要利用github服务器的资源搭载的相关功能，所以首先应当申请有个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Hexo-GitHub搭建个人的博客页面">
 <meta property="og:url" content="https://willowkaze.github.io/2024/06/15/%E4%BD%BF%E7%94%A8Hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%9D%A2/index.html">
 <meta property="og:site_name" content="风柳轩">
-<meta property="og:description" content="使用hexo+github的原因？ 支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。  使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点被删除。  本文记录自己在搭建个人博客的一些过程和遇到的一些坑，并且记录相关的命令方便查阅。   搭建环境因为需要利用github服务器的资源搭载的相关功能，所以首先应当申请有">
+<meta property="og:description" content="使用hexo+github的原因 支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。  使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点被删除。  本文记录自己在搭建个人博客的一些过程和遇到的一些坑，并且记录相关的命令方便查阅。   搭建环境因为需要利用github服务器的资源搭载的相关功能，所以首先应当申请有个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-15T08:36:13.000Z">
-<meta property="article:modified_time" content="2024-06-15T10:14:53.213Z">
+<meta property="article:modified_time" content="2024-06-15T16:16:48.653Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          693 字
+          1.2k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          6 分钟
+          11 分钟
         
       </span>
     
@@ -272,7 +272,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="使用hexo-github的原因？"><a href="#使用hexo-github的原因？" class="headerlink" title="使用hexo+github的原因？"></a>使用hexo+github的原因？</h1><ul>
+                <h1 id="使用hexo-github的原因"><a href="#使用hexo-github的原因" class="headerlink" title="使用hexo+github的原因"></a>使用hexo+github的原因</h1><ul>
 <li><p>支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。</p>
 </li>
 <li><p>使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点被删除。</p>
@@ -305,24 +305,47 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh git@github.com<br></code></pre></td></tr></table></figure>
 
 <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>hexo部分的内容可以参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官方文档</a>和<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo官方主题</a>。</p>
+<p>为了方便我们管理，我们可以用命令<code>mkdir blog</code>创建一个文件夹来存放文件和素材。</p>
 <p>可以使用以下命令安装hexo：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
+<p>使用<code>hexo -v</code>来验证是否安装成功。</p>
+<p>之后我们进入目录<code>cd blog</code>，进行初始化操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init<br>npm install<br></code></pre></td></tr></table></figure>
 
-<h1 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h1><p>创建好博客之后，接下来要做的就是产出内容，做好分享啦。不过有时候时间隔得稍微长了，对于hexo命令记忆不清了。这时候，可以来这里快捷地查看相关的命令，方便我们快速维护。</p>
+<p>执行完这些操作之后，就会有目录结构。然后我们生成并且启动服务器，就可以在本地<a href="localhost:4000"><code>localhost:4000</code></a>访问hexo页面啦：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br>hexo s<br></code></pre></td></tr></table></figure>
+
+<h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>在官方的主题页面<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a>中选择一个喜欢的主题（fluid为例），找到其主题的官方文档和github仓库。可以使用以下命令直接安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install --save hexo-theme-fluid<br></code></pre></td></tr></table></figure>
+<p>在博客页面创建一个文件<code>touch _config.fluid.yml</code>，将目标主题github文档中<code>_config.yml</code>的内容复制进去。</p>
+<p>修改<code>blog/_config.yml</code>文件内容来指定主题：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">theme:</span> <span class="hljs-string">&lt;theme_name&gt;</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span><br></code></pre></td></tr></table></figure>
+
+<p>首次使用主题的关于页需要手动创建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page about<br></code></pre></td></tr></table></figure>
+<p>创建成功后修改<code>/source/about/index.md</code>，添加<code>layout</code>属性。</p>
+<h2 id="部署到github服务器"><a href="#部署到github服务器" class="headerlink" title="部署到github服务器"></a>部署到github服务器</h2><p>完成本地部署后我们要考虑如何部署到GitHub服务器上。进入我们github的个人页面，点击右上角加号，选择new repository，创建一个新的仓库，仓库名建议为<code>&lt;username&gt;.github.io</code>，访问权限选择<code>public</code>，勾选<code>add a README file</code>，点击创建仓库。</p>
+<p>修改<code>_config.yml</code>最后几行的内容。访问仓库地址可能需要特定的令牌，在个人信息页可能可以找到。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: One-Command Deployment</span><br><span class="hljs-attr">deploy:</span> <br>    <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>    <span class="hljs-attr">repository:</span> <span class="hljs-string">https://&lt;TOKEN&gt;@github.com/&lt;username&gt;/&lt;username&gt;.github.io.git</span><br>    <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
+
+<p>保存后运行，运行一次<code>hexo d</code>命令将静态文件推送到服务器，等待一段时间，个人博客<code>&lt;username&gt;.github.io</code>即可访问了。</p>
+<h1 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h1><p>搭建好博客之后，接下来要做的就是产出内容，做好分享啦。</p>
+<p>不过有时候时间隔得稍微长了，我们就会对于hexo命令记忆不清了。这时候，可以来这里快捷地查看相关的命令，方便我们快速维护。</p>
 <ul>
-<li><p>创建新的博客</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo n <span class="hljs-string">&quot;&lt;blog_name&gt;&quot;</span><br></code></pre></td></tr></table></figure>
+<li><p>创建新的博客，新的博客会在<code>source/_posts/</code>路径下，之后按照markdown的方法编写即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo n <span class="hljs-string">&quot;&lt;blog_name&gt;&quot;</span><br>hexo new post <span class="hljs-string">&quot;&lt;blog_name&gt;&quot;</span><br></code></pre></td></tr></table></figure>
 </li>
-<li><p>开启本地的hexo服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo s<br></code></pre></td></tr></table></figure>
+<li><p>开启本地的hexo服务器，本地访问地址为<a href="localhost:4000"><code>localhost:4000</code></a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo s<br>hexo server<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>编译md文件为前端的静态资源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br></code></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo  generate<br></code></pre></td></tr></table></figure>
+<li><p>编译md文件为前端的静态资源，下面两种写法是一致的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br>hexo generate<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>将资源部署到服务器端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br>hexo deploy<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>清除缓存文件<code>db.json</code>和已生成的静态文件<code>public</code>，有时候更改不生效时可以尝试先清除再重新生成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo cl<br>hexo clean<br></code></pre></td></tr></table></figure></li>
 </ul>
 
                 
