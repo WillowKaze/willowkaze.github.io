@@ -6,9 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="使用Hexo-GitHub搭建个人的博客页面, 风柳轩">
     <meta name="description" content="为什么使用hexo+github来搭建自己的博客页面？支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。
-使用github的服务器，也使得我的内容更加易于分享。
-hexo常见命令
-创">
+使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -400,7 +398,33 @@ hexo常见命令
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="为什么使用hexo-github来搭建自己的博客页面？"><a href="#为什么使用hexo-github来搭建自己的博客页面？" class="headerlink" title="为什么使用hexo+github来搭建自己的博客页面？"></a>为什么使用hexo+github来搭建自己的博客页面？</h1><p>支持markdown格式，这样对于我这样完全不熟悉前端的人可以轻松编写包含代码块的文档，轻松实现技术的分享。</p>
-<p>使用github的服务器，也使得我的内容更加易于分享。</p>
+<p>使用github的服务器，也使得我的内容更加易于分享。并且不用担心本地的站点被删除。</p>
+<p>本文记录自己在搭建个人博客的一些过程和遇到的一些坑，并且记录相关的命令方便查阅。</p>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p>因为需要利用github服务器的资源搭载的相关功能，所以首先应当申请有个人的github账号。登陆<a target="_blank" rel="noopener" href="https://www.github.com/">github官网</a>进行相应的注册即可。</p>
+<h2 id="安装git和node-js"><a href="#安装git和node-js" class="headerlink" title="安装git和node.js"></a>安装git和node.js</h2><p>程序员朋友对于git都不陌生。因为我们需要使用github托管我们的前端静态资源，因此需要用到git，前端引擎使用的是node.js同样需要安装。</p>
+<p>在mac环境中，可以使用homebrew来安装git：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+<p>同样使用homebrew安装nvm：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<p>安装完成后，配置环境变量。使用下面的命令编辑：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>在其中添加以下内容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=~/.nvm</span><br><span class="line"><span class="built_in">source</span> $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
+<p>生效环境变量:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>安装node.js</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install &lt;version&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地连接github"><a href="#本地连接github" class="headerlink" title="本地连接github"></a>本地连接github</h2><p>由于现在github已经不再支持使用账号+密码的方式进行连接和安全验证（会被拒绝访问），因此我们使用ssh密钥的方式来连接。</p>
+<p>打开终端，使用下列命令来在本地配置git的账号和邮箱：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;&lt;github_username&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;github_email&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后创建ssh密钥文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;&lt;github_email&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后创建后找到提示的路径地址，复制其中所有的内容。登陆github，找到自己的profile-&gt;setting，在SSH and GPG keys中找到add SSH key，将刚刚生成的密钥复制过来。</p>
+<p>可以使用以下命令测试是否能够完成和服务器之间的连接。若提示中出现<code>...You&#39;ve successfully authenticated...</code>等内容就说明能够完成连接。可能附加还会提示不允许shell连接之类的，不用去管。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>可以参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官方文档</a>和<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo官方主题</a></p>
 <h1 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h1><ul>
 <li><p>创建新的博客</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;&lt;blog_name&gt;&quot;</span></span><br></pre></td></tr></table></figure>
