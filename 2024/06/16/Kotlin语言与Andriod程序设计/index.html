@@ -24,7 +24,7 @@
 <meta property="og:description" content="Kotlin语言等待资料补充 Android四大组件ActivityActivity是可见的部分。 所有的Activity都需要在AndriodManifest.xml中进行注册。注册声明放在&lt;application&gt;标签内，主Activity通过在&lt;activity&gt;标签内部加入&lt;intent-filter&gt;标签并在标签中添加以下声明： 12&lt;actio">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-16T12:29:38.000Z">
-<meta property="article:modified_time" content="2024-06-15T14:44:13.964Z">
+<meta property="article:modified_time" content="2024-06-16T16:52:08.365Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          198 字
+          1.1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          2 分钟
+          10 分钟
         
       </span>
     
@@ -280,8 +280,93 @@
 <p>Toast是Andriod提供的一种简单的提醒方式，用于传输短小的信息。Toast的使用非常简单，直接使用静态方法makeText即可,有上下文，文本内容，显示时常3个参数：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Toast.makeText(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;text&quot;</span>, Toast.LENGTH_SHORT/Toast.LENGH_LONG).show()<br></code></pre></td></tr></table></figure>
 
-<p>Intent是Android程序中各组件</p>
-<h3 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h3><h3 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h3><h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h3><h2 id="BroadcastaReceiver"><a href="#BroadcastaReceiver" class="headerlink" title="BroadcastaReceiver"></a>BroadcastaReceiver</h2><h2 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h2><h1 id="Android-UI"><a href="#Android-UI" class="headerlink" title="Android UI"></a>Android UI</h1><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OkHttp"><a href="#OkHttp" class="headerlink" title="OkHttp"></a>OkHttp</h2><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2>
+<p>Intent是Android程序中各组件之间进行交互的重要方式，大致可以分为显式Intent和隐式Intent。</p>
+<p>显式Intent重载的其中一个构造函数接收上下文和想要启动的Activity：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intent = Intent(<span class="hljs-keyword">this</span>, SecondActivity::<span class="hljs-keyword">class</span>.java)<br>startActivity(intent)<br></code></pre></td></tr></table></figure>
+
+<p>隐式Intent则不指明想要启动哪个Activity，而是通过一系列抽象的action和category信息，交由系统去分析这个Intent，并帮助找到合适的Activity去响应。需要在<code>&lt;activity&gt;</code>标签中中去设置能够响应怎样的action和category。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;com.example.activitytest.ACTION_START&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.category.DEFAULT&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.category.MY_CATEGORY&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>一个Intent只能有一个action，但是可以有多个category。这样来让刚刚定义的Intent进行响应：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intent = Intent(<span class="hljs-string">&quot;com.example.activitytest.ACTION_START&quot;</span>)<br>intent.addCategory(<span class="hljs-string">&quot;andriod.intent.category.MY_CATEGORY&quot;</span>)<br>startActivity(intent)<br></code></pre></td></tr></table></figure>
+
+<p>使用隐式Intent，不仅可以启动自己程序内的Activity，还可以启动其他程序的Activity，例如调用系统浏览器去访问网页：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intent = Intent(Intent.ACTION_VIEW)<br>intent.<span class="hljs-keyword">data</span> = Uri.parse(<span class="hljs-string">&quot;https://www.baidu.com&quot;</span>)<br>startActivity(intent)<br></code></pre></td></tr></table></figure>
+
+<p>在Intent中可以加入额外的数据，方便传递短小的信息</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> value = <span class="hljs-string">&quot;value&quot;</span><br>intent.putExtra(<span class="hljs-string">&quot;key&quot;</span>, value)<br></code></pre></td></tr></table></figure>
+<p>在第二个Activity中可以取出传递的信息并且打印出来：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(saveInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> &#123;<br>    <span class="hljs-keyword">super</span>.onCreate(saveInstanceState)<br>    setContentView(R.layout.second_layout)<br>    <span class="hljs-keyword">val</span> extraData = intent.getStringExtra(<span class="hljs-string">&quot;key&quot;</span>)<br>    Log.d(<span class="hljs-string">&quot;secondActivity&quot;</span>, <span class="hljs-string">&quot;extra data is <span class="hljs-variable">$extraData</span>&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Activity状态"><a href="#Activity状态" class="headerlink" title="Activity状态"></a>Activity状态</h3><p>Activity在生命周期中最多会有4种状态：</p>
+<ul>
+<li>运行状态</li>
+<li>暂停状态</li>
+<li>停止状态</li>
+<li>销毁状态</li>
+</ul>
+<h3 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h3><p>Activity类中定义了7个回调方法，覆盖了Activity生命周期的每一个环节：</p>
+<table>
+<thead>
+<tr>
+<th>回调方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onCreate()</td>
+<td>第一次被创建时调用</td>
+</tr>
+<tr>
+<td>onStart()</td>
+<td>由不可见变为可见时调用</td>
+</tr>
+<tr>
+<td>onResume()</td>
+<td>准备好和用户进行交互时调用</td>
+</tr>
+<tr>
+<td>onPause()</td>
+<td>准备启动或恢复另一个Activity时调用</td>
+</tr>
+<tr>
+<td>onStop()</td>
+<td>完全不可见时调用</td>
+</tr>
+<tr>
+<td>onDestroy()</td>
+<td>销毁之前调用</td>
+</tr>
+<tr>
+<td>onRestart()</td>
+<td>由停止状态变为运行状态时调用</td>
+</tr>
+</tbody></table>
+<p>除了<code>onRestart()</code>外，其余的都是两两对应的，据此又可以划分三种生存周期：</p>
+<ul>
+<li>完整生存期。即<code>onCreate()</code>和<code>onDestroy()</code>之间的经历。</li>
+<li>可见生存期。即<code>onStart()</code>和<code>onStop()</code>之间的经历。</li>
+<li>前台生存期。即<code>onResume()</code>和<code>onPause()</code>之间的经历。</li>
+</ul>
+<h3 id="Activity启动模式"><a href="#Activity启动模式" class="headerlink" title="Activity启动模式"></a>Activity启动模式</h3><ul>
+<li>standard</li>
+<li>singleTop</li>
+<li>singleTask</li>
+<li>singleInstance</li>
+</ul>
+<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>Service是Android中实现程序后台运行的解决方案，适合执行不需要和用户进行交互的并且需要长期运行的任务。</p>
+<p>Service并不在独立的进程中，而是依赖于创建Service的应用程序的进程。该应用程序被杀掉时，以来它的服务也会停止。</p>
+<p>Service 默认运行在主线城当中，因此我们需要手动创建子线程，并在其中执行具体的任务。</p>
+<h3 id="Android多线程编程"><a href="#Android多线程编程" class="headerlink" title="Android多线程编程"></a>Android多线程编程</h3><p>Android多线程编程与Java的多线程编程有基本相同的语法。开启多线程方法也与Java类似可以新建一个类继承<code>Thread</code>，然后重写父类的<code>run()</code>方法：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyThread</span>: <span class="hljs-type">Thread</span>() &#123;<br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-comment">// do something</span><br>    &#125;<br>&#125;<br><br>MyThread().start()<br></code></pre></td></tr></table></figure>
+
+<p>继承的方法实现会有高耦合的情况，因此通常更多是实现<code>Runnable</code>接口来定义一个线程：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyThread</span>: <span class="hljs-type">Runnable</span> &#123;<br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-comment">// do something</span><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">val</span> myThread = MyThread()<br>Thread(myThread).start()<br></code></pre></td></tr></table></figure>
+<p>使用Lambda表达式可以帮助我们省去重新写一个类的精力，更加方便：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Thread &#123;<br>    <span class="hljs-comment">// do something</span><br>&#125;.start()<br></code></pre></td></tr></table></figure>
+<p>Kotlin语言还提供了更简单的方法，使用一个顶层函数，连<code>start()</code>方法都不用调用，全部在函数内部实现好了：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">thread &#123;<br>    <span class="hljs-comment">// do something</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="异步消息处理机制"><a href="#异步消息处理机制" class="headerlink" title="异步消息处理机制"></a>异步消息处理机制</h3><h3 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h3><h2 id="BroadcastaReceiver"><a href="#BroadcastaReceiver" class="headerlink" title="BroadcastaReceiver"></a>BroadcastaReceiver</h2><h2 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h2><h1 id="Android-UI"><a href="#Android-UI" class="headerlink" title="Android UI"></a>Android UI</h1><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OkHttp"><a href="#OkHttp" class="headerlink" title="OkHttp"></a>OkHttp</h2><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2>
                 
               </div>
             
