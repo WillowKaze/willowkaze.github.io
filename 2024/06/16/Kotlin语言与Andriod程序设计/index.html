@@ -24,7 +24,7 @@
 <meta property="og:description" content="Kotlin语言基本概述Kotlin是一门现代多平台应用的静态编程语言，2016年发布1.0的release版本 特点： 富有表现力且简洁，更安全的代码，可互操作，结构化并发（协程） 基本数据类型整数类型   类型 位宽 最小值 最大值    Byte 8 -128 127   Short 16 -32768 32767   Int 32 -2^31 2^31-1   Long 64 -2^63">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-16T12:29:38.000Z">
-<meta property="article:modified_time" content="2024-06-17T13:55:18.671Z">
+<meta property="article:modified_time" content="2024-06-17T14:01:07.263Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -94,7 +94,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>昔年种柳</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          4.3k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          35 分钟
+          37 分钟
         
       </span>
     
@@ -471,8 +471,7 @@
 <h3 id="apply扩展"><a href="#apply扩展" class="headerlink" title="apply扩展"></a>apply扩展</h3><p>调用某对象的apply函数，在函数范围内，可以调用该对象的任意方法，并返回该对象。一般用于对象实例初始化的时候，需要对对象中的属性进行赋值。或者动态inflate出一个XML的View的时候需要给View绑定数据也会用到，这种场景非常常见。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">testApply</span><span class="hljs-params">()</span></span> &#123;<br>    ArrayList&lt;String&gt;().apply &#123;<br>        add(<span class="hljs-string">&quot;test&quot;</span>Apply<span class="hljs-string">&quot;)</span><br><span class="hljs-string">        println(&quot;</span>$<span class="hljs-keyword">this</span><span class="hljs-string">&quot;)</span><br><span class="hljs-string">    &#125;.let &#123; println(it) &#125;</span><br><span class="hljs-string">&#125;</span><br></code></pre></td></tr></table></figure>
 
-
-<h1 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h1><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>Activity是可见的部分。</p>
+<h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><h1 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h1><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>Activity是可见的部分。</p>
 <p>所有的Activity都需要在<code>AndriodManifest.xml</code>中进行注册。注册声明放在<code>&lt;application&gt;</code>标签内，主Activity通过在<code>&lt;activity&gt;</code>标签内部加入<code>&lt;intent-filter&gt;</code>标签并在标签中添加以下声明：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.action.MAIN&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.category.LAUNCHER&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -801,7 +800,18 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="ImageView图像"><a href="#ImageView图像" class="headerlink" title="ImageView图像"></a>ImageView图像</h3><h2 id="高级控件"><a href="#高级控件" class="headerlink" title="高级控件"></a>高级控件</h2><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OkHttp"><a href="#OkHttp" class="headerlink" title="OkHttp"></a>OkHttp</h2><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2>
+<h3 id="ImageView图像"><a href="#ImageView图像" class="headerlink" title="ImageView图像"></a>ImageView图像</h3><h2 id="高级控件"><a href="#高级控件" class="headerlink" title="高级控件"></a>高级控件</h2><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OKHttp"><a href="#OKHttp" class="headerlink" title="OKHttp"></a>OKHttp</h2><p>OKHttp是一个高效的HTTP客户端。<br>添加网络访问权限</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.permission.INTERNET&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+<p>添加依赖</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle">implementation(<span class="hljs-string">&quot;com.squareup.okhttp3:okhttp:4.9.0&quot;</span>)<br>implementation(<span class="hljs-string">&quot;com.squareup.okhttp3:logging-interceptor&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><p>Retrofit是一个基于OKHttp的网络请求框架，功能强大、简洁易用及高拓展性，是高级REST抽象，请求接口和数据解析更加简洁明了。</p>
+<p>Retrofit注解驱动型上层网络请求框架，使用注解来简化请求，大体分为以下几类：</p>
+<ul>
+<li>用于标注网络请求方式的注解</li>
+<li>标记网络请求参数的注解</li>
+<li>用于标记网络请求和响应格式的注解<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">ApiService</span> &#123;<br>    <span class="hljs-meta">@GET(<span class="hljs-string">&quot;user/query&quot;</span>)</span><br>    Call&lt;User&gt; queryUser(<span class="hljs-meta">@Query(<span class="hljs-string">&quot;userId&quot;</span>)</span> String userId);<br>&#125;<br><br><span class="hljs-keyword">val</span> mApi = retrofit.create(ApiService.<span class="hljs-keyword">class</span>);<br><span class="hljs-keyword">val</span> response = mApi.queryUser(<span class="hljs-string">&quot;10086&quot;</span>).execute()<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Gson数据解析"><a href="#Gson数据解析" class="headerlink" title="Gson数据解析"></a>Gson数据解析</h2>
                 
               </div>
             
