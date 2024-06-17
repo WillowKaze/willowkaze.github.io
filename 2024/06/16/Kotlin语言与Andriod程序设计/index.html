@@ -16,15 +16,15 @@
   <meta name="author" content="Willow Kaze">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Kotlin语言等待资料补充 Android四大组件ActivityActivity是可见的部分。 所有的Activity都需要在AndriodManifest.xml中进行注册。注册声明放在&lt;application&gt;标签内，主Activity通过在&lt;activity&gt;标签内部加入&lt;intent-filter&gt;标签并在标签中添加以下声明： 12&lt;actio">
+    <meta name="description" content="Kotlin语言基本概述Kotlin是一门现代多平台应用的静态编程语言，2016年发布1.0的release版本 特点： 富有表现力且简洁，更安全的代码，可互操作，结构化并发（协程） 基本数据类型整数类型   类型 位宽 最小值 最大值    Byte 8 -128 127   Short 16 -32768 32767   Int 32 -2^31 2^31-1   Long 64 -2^63">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin语言与Andriod程序设计">
 <meta property="og:url" content="https://willowkaze.github.io/2024/06/16/Kotlin%E8%AF%AD%E8%A8%80%E4%B8%8EAndriod%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="风柳轩">
-<meta property="og:description" content="Kotlin语言等待资料补充 Android四大组件ActivityActivity是可见的部分。 所有的Activity都需要在AndriodManifest.xml中进行注册。注册声明放在&lt;application&gt;标签内，主Activity通过在&lt;activity&gt;标签内部加入&lt;intent-filter&gt;标签并在标签中添加以下声明： 12&lt;actio">
+<meta property="og:description" content="Kotlin语言基本概述Kotlin是一门现代多平台应用的静态编程语言，2016年发布1.0的release版本 特点： 富有表现力且简洁，更安全的代码，可互操作，结构化并发（协程） 基本数据类型整数类型   类型 位宽 最小值 最大值    Byte 8 -128 127   Short 16 -32768 32767   Int 32 -2^31 2^31-1   Long 64 -2^63">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-16T12:29:38.000Z">
-<meta property="article:modified_time" content="2024-06-16T16:52:08.365Z">
+<meta property="article:modified_time" content="2024-06-17T13:55:18.671Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          4.1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          10 分钟
+          35 分钟
         
       </span>
     
@@ -272,7 +272,206 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Kotlin语言"><a href="#Kotlin语言" class="headerlink" title="Kotlin语言"></a>Kotlin语言</h1><p>等待资料补充</p>
+                <h1 id="Kotlin语言"><a href="#Kotlin语言" class="headerlink" title="Kotlin语言"></a>Kotlin语言</h1><h2 id="基本概述"><a href="#基本概述" class="headerlink" title="基本概述"></a>基本概述</h2><p>Kotlin是一门现代多平台应用的静态编程语言，2016年发布1.0的release版本</p>
+<p>特点： 富有表现力且简洁，更安全的代码，可互操作，结构化并发（协程）</p>
+<h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位宽</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Byte</td>
+<td>8</td>
+<td>-128</td>
+<td>127</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+<td>-32768</td>
+<td>32767</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+<td>-2^31</td>
+<td>2^31-1</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+<td>-2^63</td>
+<td>2^63-1</td>
+</tr>
+</tbody></table>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> number = <span class="hljs-number">100</span> <span class="hljs-comment">//默认Int</span><br><span class="hljs-keyword">val</span> bigNumber = <span class="hljs-number">8000000000</span> <span class="hljs-comment">//超过Int最大值</span><br><span class="hljs-keyword">val</span> longNumber = <span class="hljs-number">20L</span> <span class="hljs-comment">//显式设为Long</span><br><span class="hljs-keyword">val</span> byteNumber = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<h3 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位宽</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>64</td>
+</tr>
+</tbody></table>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> doubleNumber = <span class="hljs-number">3.14</span> <span class="hljs-comment">//默认Double</span><br><span class="hljs-keyword">val</span> floatNumber = <span class="hljs-number">3.11f</span> <span class="hljs-comment">//显式Float，小数只能保留6位</span><br></code></pre></td></tr></table></figure>
+<h3 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h3><p>字符类型位Char，需要使用单引号表示其值</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> char:<span class="hljs-built_in">Char</span> = <span class="hljs-string">&#x27;9&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>字符串类型String，可以使用[]取对应字符：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> str: String = <span class="hljs-string">&quot;123456789&quot;</span><br><span class="hljs-keyword">val</span> char: <span class="hljs-built_in">Char</span> = str[<span class="hljs-number">5</span>]<br></code></pre></td></tr></table></figure>
+<p>使用$开头可以引导字符串模板，将表达式值嵌入字符串</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">println(<span class="hljs-string">&quot;the length of string is <span class="hljs-subst">$&#123;str.length&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h3><p>布尔类型只有true&#x2F;false两种值，可以显式声明或者隐式推断：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> boola:<span class="hljs-built_in">Boolean</span> = <span class="hljs-literal">false</span><br><span class="hljs-keyword">val</span> boolb = <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="数据容器"><a href="#数据容器" class="headerlink" title="数据容器"></a>数据容器</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>初始化指定大小，不可以动态调整大小，必须指定类型</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> array1 = arrayOf(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)<br><span class="hljs-keyword">val</span> array2:Array&lt;Any&gt; = arrayOf(<span class="hljs-number">1</span>, <span class="hljs-literal">true</span>, <span class="hljs-string">&quot;2&quot;</span>, JSONObject())<br></code></pre></td></tr></table></figure>
+
+<p>使用arrayOfNulls创建空数组，指定大小和类型</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> arrayNull = arrayOfNulls&lt;String&gt;(<span class="hljs-number">5</span>)<br>arrayNull[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;123&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>利用构造函数动态构造</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> asc = Array(<span class="hljs-number">5</span>) &#123;i-&gt;i*i&#125; <span class="hljs-comment">// [0,1,4,9,16]</span><br></code></pre></td></tr></table></figure>
+
+<p>构建对应的数据类型</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> intArray = IntArray(<span class="hljs-number">5</span>) &#123;it * <span class="hljs-number">2</span>&#125; <span class="hljs-comment">// [0,2,4,6,8], it表示数组下标</span><br></code></pre></td></tr></table></figure>
+
+<p>数组的遍历</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// for-in</span><br><span class="hljs-keyword">for</span> (item <span class="hljs-keyword">in</span> intArray) &#123;<br>    println(item)<br>&#125;<br><span class="hljs-comment">// 下标遍历</span><br><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> intArray.indices) &#123;<br>    println(intArray[i])<br>&#125;<br><span class="hljs-comment">// 遍历下标和元素</span><br><span class="hljs-keyword">for</span> ((ix, item) <span class="hljs-keyword">in</span> intArray.withIndex()) &#123;<br>    println(<span class="hljs-string">&quot;<span class="hljs-variable">$ix</span> -&gt; <span class="hljs-variable">$item</span>&quot;</span>)<br>&#125;<br><span class="hljs-comment">// 依次回调</span><br>intArray.forEach &#123;<br>    println(<span class="hljs-string">&quot;<span class="hljs-variable">$it</span>&quot;</span>) <span class="hljs-comment">// it代表数组元素</span><br>&#125;<br><span class="hljs-comment">// forEach增强</span><br>intArray.forEachIndexed &#123; index, item -&gt;<br>    println(<span class="hljs-string">&quot;<span class="hljs-variable">$index</span> : <span class="hljs-variable">$item</span>&quot;</span>) <span class="hljs-comment">// it代表数组元素</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合是可变的，大小可以动态改变。有以下常见的集合类型：</p>
+<ol>
+ <li>List:有序列表，可下标访问，可重复</li>
+ <li>Set:唯一元素的结合</li>
+ <li>Map:（字典），一组键值对</li>
+</ol>
+
+<p>集合的创建分为可变集合（创建后可以增删改查）和不可变集合（创建后增删会抛异常）</p>
+<table>
+<thead>
+<tr>
+<th>数组创建方式</th>
+<th>示例</th>
+<th>说明</th>
+<th>是否可变</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arrayListOf&lt;T&gt;() <br> mutableListOf&lt;T&gt;()</td>
+<td><code>val array = arrayListOf&lt;Int&gt;(1,2,3)</code> <br> <code>val array = mutableListOf&lt;String&gt;()</code></td>
+<td>-必须指定元素类型</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>listOf<T>()</td>
+<td><code>val array = listOf&lt;Int&gt;(1,2,3)</code></td>
+<td>-必须指定元素类型 <br> -必须指定初始化数据元素</td>
+<td>不可变</td>
+</tr>
+<tr>
+<td>arrayMapOf&lt;K,V&gt;() <br> mutableMapOf&lt;K,V&gt;()</td>
+<td><code>val array = arrayMapOf(Pair(&quot;key&quot;,&quot;value&quot;))</code> <br> <code>val array = mutableMapOf()</code></td>
+<td>-初始元素使用Pair包装</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>mapOf&lt;K,V&gt;()</td>
+<td><code>val array = listOf(Pair(&quot;key&quot;,&quot;value&quot;))</code></td>
+<td>-元素使用Pair包装 -必须指定初始元素 <br> -必须指定初始化数据元素</td>
+<td>不可变</td>
+</tr>
+<tr>
+<td>arraySetOf&lt;T&gt;() <br> mutableSetOf&lt;T&gt;()</td>
+<td><code>val array = arraySetOf&lt;Int&gt;(1,2,3)</code> <br> <code>val array = mutableSetOf&lt;String&gt;()</code></td>
+<td>-会对元素自动去重</td>
+<td>可变</td>
+</tr>
+<tr>
+<td>setOf&lt;T&gt;()</td>
+<td><code>val array = setOf&lt;Int&gt;(1,2,3)</code></td>
+<td>-必须指定元素类型 <br> -会对元素自动去重</td>
+<td>不可变</td>
+</tr>
+</tbody></table>
+<p>集合类型的操作</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">isEmpty(): <span class="hljs-built_in">Boolean</span><br>contains(E): <span class="hljs-built_in">Boolean</span><br>containsAll(Collection&lt;E&gt;): <span class="hljs-built_in">Boolean</span><br><span class="hljs-keyword">get</span>(<span class="hljs-built_in">Int</span>): E <span class="hljs-comment">//可以使用[]</span><br>indexOf(E): <span class="hljs-built_in">Int</span><br>lastIndexOf(E): <span class="hljs-built_in">Int</span><br>iterator(): MutableIterator&lt;E&gt;<br>add(E): <span class="hljs-built_in">Boolean</span><br>remove(E): <span class="hljs-built_in">Boolean</span><br>addAll(Collection&lt;E&gt;): <span class="hljs-built_in">Boolean</span><br>addAll(<span class="hljs-built_in">Int</span>, Collection&lt;E&gt;, <span class="hljs-built_in">Int</span>): <span class="hljs-built_in">Boolean</span><br>removeAll(Collection&lt;E&gt;): <span class="hljs-built_in">Boolean</span><br>retainAll(Collection&lt;E&gt;): <span class="hljs-built_in">Boolean</span><br>clear(): <span class="hljs-built_in">Unit</span><br><span class="hljs-keyword">set</span>(<span class="hljs-built_in">Int</span>, E): E<br>add(<span class="hljs-built_in">Int</span>, E): <span class="hljs-built_in">Unit</span><br>removeAt(<span class="hljs-built_in">Int</span>): E<br>listIterator()： MutableListIterator&lt;E&gt;<br>listIterator(<span class="hljs-built_in">Int</span>): MutableListIterator&lt;E&gt;<br>subList(<span class="hljs-built_in">Int</span>, <span class="hljs-built_in">Int</span>): MutableList&lt;E&gt;<br>shuffle() <span class="hljs-comment">// 打乱</span><br>sort() <span class="hljs-comment">//升序排列</span><br>sortDescending() <span class="hljs-comment">//降序排列</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法声明"><a href="#方法声明" class="headerlink" title="方法声明"></a>方法声明</h3><p>方法声明包含</p>
+<ol>
+ <li>普通类的方法</li>
+ <li>静态类的方法</li>
+ <li>companion object伴生类的方法</li>
+</ol>
+方法声明示例
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">max</span><span class="hljs-params">(a: <span class="hljs-type">Int</span>, b:<span class="hljs-type">Int</span>)</span></span> : <span class="hljs-built_in">Int</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> (a&gt;b) a <span class="hljs-keyword">else</span> b<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>普通类的方法声明示例</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> &#123;<br>        println(<span class="hljs-string">&quot;method&quot;</span>)<br>    &#125;<br>&#125;<br><span class="hljs-comment">// 创建对象后才能调用方法</span><br>Person().test()<br></code></pre></td></tr></table></figure>
+
+<p>静态类的方法声明示例，适用于工具类的构建</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">object</span> NumUtil &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">double</span><span class="hljs-params">(num: <span class="hljs-type">Int</span>)</span></span> : <span class="hljs-built_in">Int</span> &#123;<br>        <span class="hljs-keyword">return</span> num * <span class="hljs-number">2</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">val</span> result = NumUtil.double(<span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
+
+<p>伴生类方法的声明，可以不创建普通类的实例而调用的方法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">cotest</span><span class="hljs-params">()</span></span> &#123;<br>            println(<span class="hljs-string">&quot;companion object method&quot;</span>)<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span> &#123;<br>        println(<span class="hljs-string">&quot;method&quot;</span>)<br>    &#125;<br>&#125;<br>Person.cotest() <span class="hljs-comment">//不需要创建实例</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h3><p>默认参数：方法参数可以有默认值，省略相应的参数时使用默认值，相对于Java减少重载数量</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">read</span><span class="hljs-params">(offset: <span class="hljs-type">Int</span>=<span class="hljs-number">0</span>, start: <span class="hljs-type">Int</span>)</span></span> &#123; <span class="hljs-comment">/* do something */</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>具名参数:使用具名参数为在默认参数后的无默认值参数赋值：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">read</span><span class="hljs-params">(offset: <span class="hljs-type">Int</span>=<span class="hljs-number">0</span>, start: <span class="hljs-type">Int</span>)</span></span> &#123; <span class="hljs-comment">/* do something */</span>&#125;<br>read(start = <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p>最后一个参数是方法，则既可以作为具名参数在括号内传入，也可以在方法外传入</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">read</span><span class="hljs-params">(offset: <span class="hljs-type">Int</span>=<span class="hljs-number">0</span>, start: <span class="hljs-type">Int</span>, action: ()-&gt; <span class="hljs-type">Unit</span>)</span></span> &#123; <span class="hljs-comment">/* do something */</span>&#125;<br><br>read(start=<span class="hljs-number">1</span>, action= &#123;println(<span class="hljs-string">&quot;hello&quot;</span>)&#125;)<br>read(start=<span class="hljs-number">1</span>) &#123; println(<span class="hljs-string">&quot;hello&quot;</span>)&#125;<br></code></pre></td></tr></table></figure>
+<p>可变数量参数:参数（通常是最后一个）可以使用<code>vararg</code>修饰符标记。可变参数后面还有参数，可以使用具名参数的方法传入。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">append</span><span class="hljs-params">(<span class="hljs-keyword">vararg</span> str: <span class="hljs-type">Char</span>)</span></span>: String &#123;<br>    <span class="hljs-keyword">val</span> result = StringBuffer()<br>    <span class="hljs-keyword">for</span> (char <span class="hljs-keyword">in</span> str) &#123;<br>        result.append(char)<br>    &#125;<br>    <span class="hljs-keyword">return</span> result.toString()<br>&#125;<br><br><span class="hljs-keyword">val</span> world = charArrayOf(<span class="hljs-string">&#x27;w&#x27;</span>,<span class="hljs-string">&#x27;o&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>,<span class="hljs-string">&#x27;l&#x27;</span>,<span class="hljs-string">&#x27;d&#x27;</span>)<br><span class="hljs-keyword">val</span> result = append(<span class="hljs-string">&#x27;h&#x27;</span>,<span class="hljs-string">&#x27;e&#x27;</span>,<span class="hljs-string">&#x27;l&#x27;</span>,<span class="hljs-string">&#x27;l&#x27;</span>,<span class="hljs-string">&#x27;o&#x27;</span>, *world) <span class="hljs-comment">//可以逐个传入，也可以使用数组</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h3><p>Lambda表达式本质上是匿名方法，但是我们在使用时不必关心其底层实现。原始实现：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">View</span> &#123;<br>    <span class="hljs-keyword">public</span> void setOnClickListener(OnClickListener l) &#123;<br><br>    &#125;<br>&#125;<br><br>view.setOnClickListener(new View.OnclickListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> void onClick(View view) &#123;<br>        println(<span class="hljs-string">&quot;lambda is simple&quot;</span>)<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>如果使用Lambda表达式来进行：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">view.setOnClickListener &#123;view -&gt; println(<span class="hljs-string">&quot;lambda is simple&quot;</span>)&#125;<br></code></pre></td></tr></table></figure>
+<p>it是一个高阶方法中Lambda表达式的参数只有一个参数的时候约定俗成可以使用它表示，是单个参数的隐式名称，不是保留字</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> numbers = arrayOf(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>)<br>numbers.forEach &#123;<br>    println(it)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="条件控制"><a href="#条件控制" class="headerlink" title="条件控制"></a>条件控制</h2><p>if的使用与Java中几乎一样，但是不同的是Kotlin中的if条件可以有返回值，即条件中每个条件的最后一行代码作为返回值，可以用if语句取代三目运算符：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxOf</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;<br> <span class="hljs-keyword">return</span> a &gt; b ？ a: b;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>使用kotlin重写：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">maxOf</span><span class="hljs-params">(a: <span class="hljs-type">Int</span>, b:<span class="hljs-type">Int</span>)</span></span> = <span class="hljs-keyword">if</span> (a &gt; b) a <span class="hljs-keyword">else</span> b;<br></code></pre></td></tr></table></figure>
+<p>多级if表达式，可以考虑使用when语句替代:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">eval</span><span class="hljs-params">(number: <span class="hljs-type">Number</span>)</span></span>: String = <span class="hljs-keyword">when</span> (number) &#123;<br>    <span class="hljs-keyword">is</span> <span class="hljs-built_in">Byte</span> -&gt; <span class="hljs-string">&quot;this is a byte number&quot;</span><br>    <span class="hljs-keyword">is</span> <span class="hljs-built_in">Short</span> -&gt; <span class="hljs-string">&quot;this is a short number&quot;</span><br>    <span class="hljs-keyword">is</span> <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-string">&quot;this is an int number&quot;</span><br>    <span class="hljs-keyword">is</span> <span class="hljs-built_in">Long</span> -&gt; <span class="hljs-string">&quot;this is a long number&quot;</span><br>    <span class="hljs-keyword">is</span> <span class="hljs-built_in">Float</span> -&gt; <span class="hljs-string">&quot;this is a float number&quot;</span><br>    <span class="hljs-keyword">is</span> <span class="hljs-built_in">Long</span> -&gt; <span class="hljs-string">&quot;this is a double number&quot;</span><br>    <span class="hljs-keyword">else</span> -&gt; <span class="hljs-string">&quot;invalid number&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h2><h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h3 id="泛型接口-泛型类"><a href="#泛型接口-泛型类" class="headerlink" title="泛型接口&#x2F;泛型类"></a>泛型接口&#x2F;泛型类</h3><p>在类名，主构造函数之前使用尖括号括起来使用大写字母进行参数指定。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">//泛型接口</span><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Drinks</span>&lt;<span class="hljs-type">T</span>&gt; &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">taste</span><span class="hljs-params">()</span></span> :T<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">price</span><span class="hljs-params">(t: <span class="hljs-type">T</span>)</span></span><br>&#125;<br><br><span class="hljs-comment">//泛型类</span><br><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Color</span>&lt;<span class="hljs-type">T</span>&gt; (<span class="hljs-keyword">var</span> t: T) &#123;<br>    <span class="hljs-keyword">abstract</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">printColor</span><span class="hljs-params">()</span></span><br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Blue</span> &#123;<br>    <span class="hljs-keyword">var</span> color = <span class="hljs-string">&quot;blue&quot;</span><br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BlueColor</span>(t: Blue) : Color&lt;Blue&gt;(t) &#123;<br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">printColor</span><span class="hljs-params">()</span></span> &#123;<br>        println(<span class="hljs-string">&quot;color:<span class="hljs-subst">$&#123;t.color&#125;</span>&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><p>类型参数要放在方法名的前面</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> <span class="hljs-title">fromJson</span><span class="hljs-params">(json: <span class="hljs-type">String</span>, tClass: <span class="hljs-type">Class</span>&lt;<span class="hljs-type">T</span>&gt;)</span></span>: T? &#123;<br>    <span class="hljs-keyword">val</span> t: T? = tClass.newInstance()<br>    <span class="hljs-keyword">return</span> t<br>&#125;<br><br>fromJson&lt;String&gt;（<span class="hljs-string">&quot;&#123;&#125;&quot;</span>, String::<span class="hljs-keyword">class</span>.java）<span class="hljs-comment">//传入类的写法</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h3><p>限定泛型参数的类型</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 限定传递的类必须满足是User的子类或User类</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T: User&gt;</span> <span class="hljs-title">fromJson</span><span class="hljs-params">(json: <span class="hljs-type">String</span>, tClass: <span class="hljs-type">Class</span>&lt;<span class="hljs-type">T</span>&gt;)</span></span>: T? &#123; <span class="hljs-comment">/* do something */</span>&#125;<br><br><span class="hljs-comment">// 限定传递的类必须满足where的所有条件</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> <span class="hljs-title">fromJson</span><span class="hljs-params">(json: <span class="hljs-type">String</span>, tClass: <span class="hljs-type">Class</span>&lt;<span class="hljs-type">T</span>&gt;)</span></span>: T? <span class="hljs-keyword">where</span> T :User,T : Comparable&lt;T&gt; &#123; <span class="hljs-comment">/* do something */</span>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>提供架构的易用性，减少代码量，让代码更加简洁、纯粹，提高编码的效率，生产力提高</p>
+<h3 id="扩展方法"><a href="#扩展方法" class="headerlink" title="扩展方法"></a>扩展方法</h3><p>扩展函数可以让你作为一个类成员进行调用的函数。这样可以很方便扩展为一个已经存在的类，为它添加额外的方法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> String.<span class="hljs-title">lastChar</span><span class="hljs-params">()</span></span>: <span class="hljs-built_in">Char</span> = <span class="hljs-keyword">this</span>.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>.length -<span class="hljs-number">1</span>) <span class="hljs-comment">// 方法名前加一个类名</span><br></code></pre></td></tr></table></figure>
+<h3 id="扩展属性"><a href="#扩展属性" class="headerlink" title="扩展属性"></a>扩展属性</h3><p>扩展属性提供了一种方法能通过属性语法进行访问的API来扩展。尽管被称为属性，但是不能拥有任何状态，不能添加额外的字段到现有的Java对象实例</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> String.lastChar: <span class="hljs-built_in">Char</span> <span class="hljs-keyword">get</span>() = <span class="hljs-keyword">this</span>.<span class="hljs-keyword">get</span>(<span class="hljs-keyword">this</span>.length - <span class="hljs-number">1</span>)<br><span class="hljs-keyword">val</span> &lt;T&gt;List&lt;T&gt;.last: T <span class="hljs-keyword">get</span>() = <span class="hljs-keyword">get</span>(size - <span class="hljs-number">1</span>)<br><span class="hljs-keyword">val</span> listString = listOf(<span class="hljs-string">&quot;Andriod S&quot;</span>, <span class="hljs-string">&quot;Andriod N&quot;</span>, <span class="hljs-string">&quot;Andriod P&quot;</span>)<br>println(<span class="hljs-string">&quot;listString.last<span class="hljs-subst">$&#123;listString.last&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="伴生对象扩展"><a href="#伴生对象扩展" class="headerlink" title="伴生对象扩展"></a>伴生对象扩展</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Jump</span> &#123;<br>    <span class="hljs-keyword">companion</span> <span class="hljs-keyword">object</span> &#123;&#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">fun</span> Jump.Companion.<span class="hljs-title">print</span><span class="hljs-params">(str: <span class="hljs-type">String</span>)</span></span> &#123;<br>    println(str)<br>&#125;<br><br>Jump.print(<span class="hljs-string">&quot;compainion object extention&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="let扩展"><a href="#let扩展" class="headerlink" title="let扩展"></a>let扩展</h3><p>let扩展函数是一个作用于函数，限定一个变量在特定的作用域范围内；可以避免一些判断null的操作。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">testLet</span><span class="hljs-params">(str: <span class="hljs-type">String</span>?)</span></span> &#123;<br>    <span class="hljs-comment">//限制作用域</span><br>    str.let &#123;<br>        <span class="hljs-keyword">val</span> str2 = <span class="hljs-string">&quot;let&quot;</span><br>        println(it + str2)<br>    &#125;<br>    println(str2) <span class="hljs-comment">// error</span><br><br>    <span class="hljs-comment">//避免null操作</span><br>    str?.let&#123;<br>        println(it.length)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="run扩展"><a href="#run扩展" class="headerlink" title="run扩展"></a>run扩展</h3><p>run函数只接收一个Lambda函数为参数，以闭包的形式返回，返回值为最后一行的值或者指定的return的表达式，run函数中可以直接访问实例的公有属性和方法。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">data</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Room</span>(<span class="hljs-keyword">val</span> address: String, <span class="hljs-keyword">val</span> price: <span class="hljs-built_in">Float</span>, <span class="hljs-keyword">val</span> size: <span class="hljs-built_in">Float</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">testRun</span><span class="hljs-params">(room: <span class="hljs-type">Room</span>)</span></span> &#123;<br>    room.run &#123;<br>        println(<span class="hljs-string">&quot;Room:<span class="hljs-variable">$address</span>, <span class="hljs-variable">$price</span>, <span class="hljs-variable">$size</span>&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="apply扩展"><a href="#apply扩展" class="headerlink" title="apply扩展"></a>apply扩展</h3><p>调用某对象的apply函数，在函数范围内，可以调用该对象的任意方法，并返回该对象。一般用于对象实例初始化的时候，需要对对象中的属性进行赋值。或者动态inflate出一个XML的View的时候需要给View绑定数据也会用到，这种场景非常常见。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">testApply</span><span class="hljs-params">()</span></span> &#123;<br>    ArrayList&lt;String&gt;().apply &#123;<br>        add(<span class="hljs-string">&quot;test&quot;</span>Apply<span class="hljs-string">&quot;)</span><br><span class="hljs-string">        println(&quot;</span>$<span class="hljs-keyword">this</span><span class="hljs-string">&quot;)</span><br><span class="hljs-string">    &#125;.let &#123; println(it) &#125;</span><br><span class="hljs-string">&#125;</span><br></code></pre></td></tr></table></figure>
+
+
 <h1 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h1><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>Activity是可见的部分。</p>
 <p>所有的Activity都需要在<code>AndriodManifest.xml</code>中进行注册。注册声明放在<code>&lt;application&gt;</code>标签内，主Activity通过在<code>&lt;activity&gt;</code>标签内部加入<code>&lt;intent-filter&gt;</code>标签并在标签中添加以下声明：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.action.MAIN&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">andriod:name</span>=<span class="hljs-string">&quot;andriod.intent.category.LAUNCHER&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
@@ -366,7 +565,243 @@
 <p>Kotlin语言还提供了更简单的方法，使用一个顶层函数，连<code>start()</code>方法都不用调用，全部在函数内部实现好了：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">thread &#123;<br>    <span class="hljs-comment">// do something</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="异步消息处理机制"><a href="#异步消息处理机制" class="headerlink" title="异步消息处理机制"></a>异步消息处理机制</h3><h3 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h3><h2 id="BroadcastaReceiver"><a href="#BroadcastaReceiver" class="headerlink" title="BroadcastaReceiver"></a>BroadcastaReceiver</h2><h2 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h2><h1 id="Android-UI"><a href="#Android-UI" class="headerlink" title="Android UI"></a>Android UI</h1><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OkHttp"><a href="#OkHttp" class="headerlink" title="OkHttp"></a>OkHttp</h2><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2>
+<h3 id="异步消息处理机制"><a href="#异步消息处理机制" class="headerlink" title="异步消息处理机制"></a>异步消息处理机制</h3><ul>
+<li>Message</li>
+<li>Handler</li>
+<li>MessageQueue</li>
+<li>Looper</li>
+</ul>
+<h3 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h3><h2 id="BroadcastaReceiver"><a href="#BroadcastaReceiver" class="headerlink" title="BroadcastaReceiver"></a>BroadcastaReceiver</h2><h2 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h2><h1 id="Andriod-UI"><a href="#Andriod-UI" class="headerlink" title="Andriod UI"></a>Andriod UI</h1><h2 id="基础容器"><a href="#基础容器" class="headerlink" title="基础容器"></a>基础容器</h2><p>Andriod UI可以分为两类</p>
+<ol>
+ <li>View视图TextView，Button，ImageView都是常见的视图</li>
+ <li>ViewGroup容器：内部可以承载、放置、添加View视图</li>
+</ol>
+
+<h3 id="LinearLayout线性布局"><a href="#LinearLayout线性布局" class="headerlink" title="LinearLayout线性布局"></a>LinearLayout线性布局</h3><p>线性布局就是从左到右或者从上到下按顺序排列的一种布局。其中基础属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>orientation</td>
+<td>vertical:垂直排列 <br> horizontal:水平排列</td>
+</tr>
+<tr>
+<td>layout_width <br> layout_height</td>
+<td>match_parent:填充父容器的剩余空间 <br> wrap_content:根据子视图宽高自适应自己的宽高 <br> 自定义大小50dp</td>
+</tr>
+<tr>
+<td>background</td>
+<td>#ff0000 背景色红色</td>
+</tr>
+<tr>
+<td>gravity</td>
+<td>center:所有子视图相对于父视图居中 <br> horizontal_center:所有子视图横向方向上相对于父视图居中 <br>vertical_center:所有子视图的纵向方向上相对于父视图居中显示</td>
+</tr>
+<tr>
+<td>layout_gravity</td>
+<td>center:该容器相对于它的父视图居中 <br> horizontal_center:该容器横向方向上相对于它的父视图居中 <br>vertical_center:该容器的纵向方向上相对于父视图居中显示</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>按比例分配父容器剩余的宽度或高度</td>
+</tr>
+</tbody></table>
+<h3 id="RelativeLayout相对布局"><a href="#RelativeLayout相对布局" class="headerlink" title="RelativeLayout相对布局"></a>RelativeLayout相对布局</h3><p>相对布局在摆放子视图位置时，按照指定参考系来摆放子视图的位置，默认以屏幕左上角（0,0）为参考系摆放位置。</p>
+<ul>
+<li>相对于父元素摆放自己位置的常用属性</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout_alignParentTop</td>
+<td>true&#x2F;false</td>
+<td>顶部对齐</td>
+</tr>
+<tr>
+<td>layout_alignParentBottom</td>
+<td>true&#x2F;false</td>
+<td>底部对齐</td>
+</tr>
+<tr>
+<td>layout_alignParentLeft</td>
+<td>true&#x2F;false</td>
+<td>左边对齐</td>
+</tr>
+<tr>
+<td>layout_alignParentRight</td>
+<td>true&#x2F;false</td>
+<td>右边对齐</td>
+</tr>
+<tr>
+<td>layout_centerHorizontal</td>
+<td>true&#x2F;false</td>
+<td>水平居中显示</td>
+</tr>
+<tr>
+<td>layout_centerVertical</td>
+<td>true&#x2F;false</td>
+<td>垂直居中显示</td>
+</tr>
+<tr>
+<td>centerInParent</td>
+<td>true&#x2F;false</td>
+<td>居中显示</td>
+</tr>
+</tbody></table>
+<ul>
+<li>相对于兄弟元素摆放自己位置的4个常用属性</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout_above</td>
+<td>@+id&#x2F;</td>
+<td>指定控件的上方</td>
+</tr>
+<tr>
+<td>layout_below</td>
+<td>@+id&#x2F;</td>
+<td>指定控件的下方</td>
+</tr>
+<tr>
+<td>layout_toLeftOf</td>
+<td>@+id&#x2F;</td>
+<td>指定控件的左侧</td>
+</tr>
+<tr>
+<td>layout_toRightOf</td>
+<td>@+id&#x2F;</td>
+<td>指定控件的右侧</td>
+</tr>
+</tbody></table>
+<ul>
+<li>相对于兄弟元素的对齐方式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout_alignLeft</td>
+<td>@+id&#x2F;</td>
+<td>该控件左边沿与指定控件的左边对齐</td>
+</tr>
+<tr>
+<td>layout_alignRight</td>
+<td>@+id&#x2F;</td>
+<td>该控件右边沿与指定控件的右边对齐</td>
+</tr>
+<tr>
+<td>layout_alignTop</td>
+<td>@+id&#x2F;</td>
+<td>该控件上边沿与指定控件的上边对齐</td>
+</tr>
+<tr>
+<td>layout_alignBottom</td>
+<td>@+id&#x2F;</td>
+<td>该控件下边沿与指定控件的下边对齐</td>
+</tr>
+</tbody></table>
+<h3 id="FrameLayout帧布局"><a href="#FrameLayout帧布局" class="headerlink" title="FrameLayout帧布局"></a>FrameLayout帧布局</h3><p>组件默认位置为左上角，组件之间可以重叠。像千层饼一样，一层压着一层。</p>
+<ul>
+<li>常用属性</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可选值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout_gravity</td>
+<td>center&#x2F;center_vertical&#x2F;center_horizontal</td>
+<td>相对于父容器的位置</td>
+</tr>
+<tr>
+<td>layout_marginLeft</td>
+<td>具体数值dp</td>
+<td>指定控件的下方</td>
+</tr>
+<tr>
+<td>layout_marginTop</td>
+<td>具体数值dp</td>
+<td>指定控件的左侧</td>
+</tr>
+<tr>
+<td>layout_marginRight</td>
+<td>具体数值dp</td>
+<td>指定控件的右侧</td>
+</tr>
+<tr>
+<td>layout_marginBottom</td>
+<td>具体数值dp</td>
+<td>指定控件的右侧</td>
+</tr>
+</tbody></table>
+<h2 id="基础控件"><a href="#基础控件" class="headerlink" title="基础控件"></a>基础控件</h2><h3 id="TextView文本"><a href="#TextView文本" class="headerlink" title="TextView文本"></a>TextView文本</h3><h3 id="Button按钮"><a href="#Button按钮" class="headerlink" title="Button按钮"></a>Button按钮</h3><p>使用MaterialButton需要引入依赖</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">com.google.andriod.material:material:<span class="hljs-number">1.3</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>并且需要使用特定的主题:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">andriod:theme=&quot;@style/Theme.MaterialComponents.Light.NoActionBar&quot;<br></code></pre></td></tr></table></figure>
+
+<p>常用属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app:backgroundTint</td>
+<td>背景着色</td>
+<td></td>
+</tr>
+<tr>
+<td>app:backgroundTint</td>
+<td>背景着色</td>
+<td></td>
+</tr>
+<tr>
+<td>app:backgroundTint</td>
+<td>背景着色</td>
+<td></td>
+</tr>
+<tr>
+<td>app:backgroundTint</td>
+<td>背景着色</td>
+<td></td>
+</tr>
+<tr>
+<td>app:backgroundTint</td>
+<td>背景着色</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="ImageView图像"><a href="#ImageView图像" class="headerlink" title="ImageView图像"></a>ImageView图像</h3><h2 id="高级控件"><a href="#高级控件" class="headerlink" title="高级控件"></a>高级控件</h2><h1 id="Android数据存储"><a href="#Android数据存储" class="headerlink" title="Android数据存储"></a>Android数据存储</h1><h2 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h2><h2 id="外部存储"><a href="#外部存储" class="headerlink" title="外部存储"></a>外部存储</h2><h1 id="Android网络编程"><a href="#Android网络编程" class="headerlink" title="Android网络编程"></a>Android网络编程</h1><h2 id="OkHttp"><a href="#OkHttp" class="headerlink" title="OkHttp"></a>OkHttp</h2><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2>
                 
               </div>
             
