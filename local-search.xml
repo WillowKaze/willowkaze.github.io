@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>初识配置中心Apollo</title>
+    <link href="/2024/07/12/%E5%88%9D%E8%AF%86%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83Apollo/"/>
+    <url>/2024/07/12/%E5%88%9D%E8%AF%86%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83Apollo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="简介与特性"><a href="#简介与特性" class="headerlink" title="简介与特性"></a>简介与特性</h1><p><a href="https://www.apolloconfig.com/#/zh/README">Apollo</a>（阿波罗）是一款可靠的分布式配置管理中心，诞生于携程框架研发部，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。</p><p>服务端基于Spring Boot和Spring Cloud开发，打包后可以直接运行，不需要额外安装Tomcat等应用容器。</p><p>Java客户端不依赖任何框架，能够运行于所有Java运行时环境，同时对Spring&#x2F;Spring Boot环境也有较好的支持。</p><p>.Net客户端不依赖任何框架，能够运行于所有.Net运行时环境。</p><p><a href="http://81.68.181.139/">官方展示Demo</a>，账号：apollo，密码：admin.</p><p>官网提到Apollo作为配置中心的主要Feature如下：</p><ul><li>统一界面集中式管理不同环境（environment）、不同集群（cluster）、不同命名空间（namespace）的配置</li><li>配置修改实时生效（热发布），客户端能实时（1秒）接收到最新的配置，并通知到应用程序。</li><li>所有的配置发布都有版本概念，从而可以方便的支持配置的回滚。</li><li>支持配置的灰度发布</li><li>权限管理、发布审核、操作审计机制：应用和配置的管理都有完善的权限管理机制，对配置的管理还分为了编辑和发布两个环节，从而减少人为的错误。并且所有的操作都有审计日志，可以方便的追踪问题。</li><li>客户端配置信息监控。即可以看到配置在哪些实例被使用。</li><li>提供了Java和.Net的原生客户端，方便应用集成，还有Http接口，其余应用也能很方便调用。</li><li>提供开放平台API，Apollo自身提供了比较完善的统一配置管理界面，支持多环境、多数据中心配置管理、权限、流程治理等特性。</li><li>部署简单，配置中心作为基础服务，可用性要求非常高，这就要求Apollo对外部依赖尽可能地少，唯一的外部依赖是MySQL。</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Spring，多了解一点点原理</title>
     <link href="/2024/06/20/Spring%EF%BC%8C%E5%A4%9A%E4%BA%86%E8%A7%A3%E4%B8%80%E7%82%B9%E7%82%B9%E5%8E%9F%E7%90%86/"/>
     <url>/2024/06/20/Spring%EF%BC%8C%E5%A4%9A%E4%BA%86%E8%A7%A3%E4%B8%80%E7%82%B9%E7%82%B9%E5%8E%9F%E7%90%86/</url>
