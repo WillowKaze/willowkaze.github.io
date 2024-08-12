@@ -16,21 +16,21 @@
   <meta name="author" content="Willow Kaze">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介与特性Apollo（阿波罗）是一款可靠的分布式配置管理中心，诞生于携程框架研发部，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。 服务端基于Spring Boot和Spring Cloud开发，打包后可以直接运行，不需要额外安装Tomcat等应用容器。 Java客户端不依赖任何框架，能够运行于所有Jav">
+    <meta name="description" content="缓存分布式锁消息队列从简到繁，Redis有多种功能可以实现消息队列的功能。 使用List数据结构在Redis的List数据结构是一个双向链表，容易模拟出队列效果。利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。 List消息队列的优点：  不受JVM内存上限的限制 基于Redis的持久化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识配置中心Apollo">
-<meta property="og:url" content="https://willowkaze.github.io/2024/07/12/%E5%88%9D%E8%AF%86%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83Apollo/index.html">
+<meta property="og:title" content="Redis可以被用在哪些场景呢？">
+<meta property="og:url" content="https://willowkaze.github.io/2024/08/12/Redis%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%94%A8%E5%9C%A8%E5%93%AA%E4%BA%9B%E5%9C%BA%E6%99%AF%E5%91%A2%EF%BC%9F/index.html">
 <meta property="og:site_name" content="风柳轩">
-<meta property="og:description" content="简介与特性Apollo（阿波罗）是一款可靠的分布式配置管理中心，诞生于携程框架研发部，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。 服务端基于Spring Boot和Spring Cloud开发，打包后可以直接运行，不需要额外安装Tomcat等应用容器。 Java客户端不依赖任何框架，能够运行于所有Jav">
+<meta property="og:description" content="缓存分布式锁消息队列从简到繁，Redis有多种功能可以实现消息队列的功能。 使用List数据结构在Redis的List数据结构是一个双向链表，容易模拟出队列效果。利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。 List消息队列的优点：  不受JVM内存上限的限制 基于Redis的持久化">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-12T03:39:29.000Z">
-<meta property="article:modified_time" content="2024-07-12T05:14:50.970Z">
+<meta property="article:published_time" content="2024-08-12T02:02:00.000Z">
+<meta property="article:modified_time" content="2024-08-12T23:32:10.971Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>初识配置中心Apollo - 风柳轩</title>
+  <title>Redis可以被用在哪些场景呢？ - 风柳轩</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="初识配置中心Apollo"></span>
+            <span id="subtitle" data-typed-text="Redis可以被用在哪些场景呢？"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-12 11:39" pubdate>
-          2024年7月12日 中午
+        <time datetime="2024-08-12 10:02" pubdate>
+          2024年8月12日 上午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          554 字
+          1.1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          5 分钟
+          10 分钟
         
       </span>
     
@@ -267,28 +267,142 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">初识配置中心Apollo</h1>
+            <h1 id="seo-header">Redis可以被用在哪些场景呢？</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="简介与特性"><a href="#简介与特性" class="headerlink" title="简介与特性"></a>简介与特性</h1><p><a target="_blank" rel="noopener" href="https://www.apolloconfig.com/#/zh/README">Apollo</a>（阿波罗）是一款可靠的分布式配置管理中心，诞生于携程框架研发部，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。</p>
-<p>服务端基于Spring Boot和Spring Cloud开发，打包后可以直接运行，不需要额外安装Tomcat等应用容器。</p>
-<p>Java客户端不依赖任何框架，能够运行于所有Java运行时环境，同时对Spring&#x2F;Spring Boot环境也有较好的支持。</p>
-<p>.Net客户端不依赖任何框架，能够运行于所有.Net运行时环境。</p>
-<p><a target="_blank" rel="noopener" href="http://81.68.181.139/">官方展示Demo</a>，账号：apollo，密码：admin.</p>
-<p>官网提到Apollo作为配置中心的主要Feature如下：</p>
+                <h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><p>从简到繁，Redis有多种功能可以实现消息队列的功能。</p>
+<h2 id="使用List数据结构"><a href="#使用List数据结构" class="headerlink" title="使用List数据结构"></a>使用List数据结构</h2><p>在Redis的List数据结构是一个双向链表，容易模拟出队列效果。<br>利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。<br>如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。</p>
+<p>List消息队列的优点：</p>
 <ul>
-<li>统一界面集中式管理不同环境（environment）、不同集群（cluster）、不同命名空间（namespace）的配置</li>
-<li>配置修改实时生效（热发布），客户端能实时（1秒）接收到最新的配置，并通知到应用程序。</li>
-<li>所有的配置发布都有版本概念，从而可以方便的支持配置的回滚。</li>
-<li>支持配置的灰度发布</li>
-<li>权限管理、发布审核、操作审计机制：应用和配置的管理都有完善的权限管理机制，对配置的管理还分为了编辑和发布两个环节，从而减少人为的错误。并且所有的操作都有审计日志，可以方便的追踪问题。</li>
-<li>客户端配置信息监控。即可以看到配置在哪些实例被使用。</li>
-<li>提供了Java和.Net的原生客户端，方便应用集成，还有Http接口，其余应用也能很方便调用。</li>
-<li>提供开放平台API，Apollo自身提供了比较完善的统一配置管理界面，支持多环境、多数据中心配置管理、权限、流程治理等特性。</li>
-<li>部署简单，配置中心作为基础服务，可用性要求非常高，这就要求Apollo对外部依赖尽可能地少，唯一的外部依赖是MySQL。</li>
+<li>不受JVM内存上限的限制</li>
+<li>基于Redis的持久化机制，数据安全更有保证</li>
+<li>保证消息的有序性</li>
 </ul>
+<p>缺点在于：</p>
+<ul>
+<li>无法避免消息丢失</li>
+<li>只支持单消费者</li>
+</ul>
+<h2 id="使用PubSub实现方法"><a href="#使用PubSub实现方法" class="headerlink" title="使用PubSub实现方法"></a>使用PubSub实现方法</h2><p>PubSub，即发布&#x2F;订阅，是消费者订阅一个或多个channel，生产者向对应channel发送消息后，所有订阅者都能收到相关消息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">SUBSCRIBE channel1 [,channel2 ...] // 订阅一个或多个频道<br>PUBLISH channel msg // 向一个频道发送消息<br>PSUBSCRIBE pattern // 订阅与模式相匹配的所有频道<br></code></pre></td></tr></table></figure>
+<p>优点：</p>
+<ul>
+<li>采用发布订阅模型，支持多生产者、多消费</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不支持持久化</li>
+<li>无法避免消息丢失（无人订阅消息直接丢失）安全性无保障</li>
+<li>消息堆积有上限（消费者缓存空间有上限），超出时数据直接丢失</li>
+</ul>
+<h2 id="使用Stream实现方法"><a href="#使用Stream实现方法" class="headerlink" title="使用Stream实现方法"></a>使用Stream实现方法</h2><p>在Redis5.0之后才可以使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">XADD key [NOMKSTREAM] [MAXLEN|MIND [=/~] threshold [LIMIT count]] *|ID field value [field value ...] // 如果队列不存在是否自动创建 设置消息队列的最大消息数量 消息唯一<span class="hljs-built_in">id</span>（*表示Redis自动生成，时间戳-递增数字）<br>XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key ...] ID [ID ...] // 每次读取消息多最大数量 当没有消息时，是否阻塞、阻塞时长 从哪个队列读取消息 起始<span class="hljs-built_in">id</span>，只返回大于该ID的消息（0第一个消息开始，$代表最新消息开始）<br></code></pre></td></tr></table></figure>
+<p>特点：</p>
+<ul>
+<li>消息可回溯</li>
+<li>一个消息可以被多个消费者读取</li>
+<li>可以阻塞读取</li>
+<li>有消息漏读风险</li>
+</ul>
+<h1 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h1><p>Redis中的有序集合SORTEDSET或ZSET非常适合各类排行榜,其存储</p>
+<h1 id="地理位置计算"><a href="#地理位置计算" class="headerlink" title="地理位置计算"></a>地理位置计算</h1><p>Redis3.2版本之后加入来GEO数据结构的支持，允许存储地理坐标信息，有利于根据经纬度检索数据</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GEOADD</td>
+<td>添加一个地理空间信息，longitude、latitude、member</td>
+</tr>
+<tr>
+<td>GEODIST</td>
+<td>计算指定的两个点之间的距离并返回</td>
+</tr>
+<tr>
+<td>GEOHASH</td>
+<td>将制定的member的坐标转换为hash字符串形式返回</td>
+</tr>
+<tr>
+<td>GEOPOS</td>
+<td>返回制定成员的坐标</td>
+</tr>
+<tr>
+<td>GEORADIUS</td>
+<td>指定圆心、半径，找到该圆内包含的所有member，并且按照与圆心的距离排序后返回（6.2废弃）</td>
+</tr>
+<tr>
+<td>GEOSEARCH</td>
+<td>在指定范围内搜索member，并且按照与指定点之间的距离排序后返回。范围可以是圆形或矩形（6.2新功能）</td>
+</tr>
+<tr>
+<td>GEOSEARCHSTORE</td>
+<td>与GEOSEARCH功能一致，但是把结果保存到一个指定的key中（6.2新功能）</td>
+</tr>
+</tbody></table>
+<p>BitMap在Redis中是利用string类型实现的，因此最大上限512M，转换为比特位是2^32个比特位，常见操作如下：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SETBIT</td>
+<td>向指定位置（offset）存入一个0或1</td>
+</tr>
+<tr>
+<td>GETBIT</td>
+<td>获取指定位置（offset）的bit值</td>
+</tr>
+<tr>
+<td>BITCOUNT</td>
+<td>统计BitMap中值为1的bit位的数量</td>
+</tr>
+<tr>
+<td>BITFIELD</td>
+<td>操作（查询，修改，自增）BitMap中bit数组中指定位置（offset）的值</td>
+</tr>
+<tr>
+<td>BITFIELD_RO</td>
+<td>获取BitMap的bit数组，并以十进制形式返回</td>
+</tr>
+<tr>
+<td>BITOP</td>
+<td>将多个BitMap的结果做位运算（与、或、异或）</td>
+</tr>
+<tr>
+<td>BITPOS</td>
+<td>查找bit数组中指定范围内第一个0或1出现的位置</td>
+</tr>
+</tbody></table>
+<h1 id="大规模基数统计"><a href="#大规模基数统计" class="headerlink" title="大规模基数统计"></a>大规模基数统计</h1><p>HyperLogLog是一种基数估算方法，可以在数据量很大的情况下，通过较小的空间近似统计出所有数据的基数。Redis中的HLL是通过string实现的，单个HLL的内存永远小于16kb，测量结果是概率性的，有小于0.81%的误差。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PFADD</td>
+<td>向一个key中加入一个或多个元素，如果指定的key不存在，该命令自动创建一个空的HyperLogLog结构</td>
+</tr>
+<tr>
+<td>PFCOUNT</td>
+<td>获取一个key中的基数评估，或者获取多个key合并后的基数评估</td>
+</tr>
+<tr>
+<td>PFMERGE</td>
+<td>将多个key合并成一个HyperLogLog存储到目标key中</td>
+</tr>
+</tbody></table>
+<p>在统计APP的日活、月活，统计独立访客数量UV，统计用户每天搜索不同词条的个数、统计注册IP数等方面都有广泛的应用。</p>
 
                 
               </div>
@@ -306,8 +420,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>初识配置中心Apollo</div>
-      <div>https://willowkaze.github.io/2024/07/12/初识配置中心Apollo/</div>
+      <div>Redis可以被用在哪些场景呢？</div>
+      <div>https://willowkaze.github.io/2024/08/12/Redis可以被用在哪些场景呢？/</div>
     </div>
     <div class="license-meta">
       
@@ -319,7 +433,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月12日</div>
+          <div>2024年8月12日</div>
         </div>
       
       
@@ -351,18 +465,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/12/Redis%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%94%A8%E5%9C%A8%E5%93%AA%E4%BA%9B%E5%9C%BA%E6%99%AF%E5%91%A2%EF%BC%9F/" title="Redis可以被用在哪些场景呢？">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Redis可以被用在哪些场景呢？</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/06/20/Spring%EF%BC%8C%E5%A4%9A%E4%BA%86%E8%A7%A3%E4%B8%80%E7%82%B9%E7%82%B9%E5%8E%9F%E7%90%86/" title="Spring，多了解一点点原理">
-                        <span class="hidden-mobile">Spring，多了解一点点原理</span>
+                      <a href="/2024/07/12/%E5%88%9D%E8%AF%86%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83Apollo/" title="初识配置中心Apollo">
+                        <span class="hidden-mobile">初识配置中心Apollo</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
