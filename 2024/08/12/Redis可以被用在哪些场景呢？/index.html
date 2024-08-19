@@ -16,15 +16,15 @@
   <meta name="author" content="Willow Kaze">
   <meta name="keywords" content="">
   
-    <meta name="description" content="缓存分布式锁消息队列从简到繁，Redis有多种功能可以实现消息队列的功能。 使用List数据结构在Redis的List数据结构是一个双向链表，容易模拟出队列效果。利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。 List消息队列的优点：  不受JVM内存上限的限制 基于Redis的持久化">
+    <meta name="description" content="缓存缓存更新策略缓存持久化双写一致性问题缓存穿透缓存击穿缓存雪崩分布式锁消息队列从简到繁，Redis有多种功能可以实现消息队列的功能。 使用List数据结构在Redis的List数据结构是一个双向链表，容易模拟出队列效果。利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。 List消息队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis可以被用在哪些场景呢？">
 <meta property="og:url" content="https://willowkaze.github.io/2024/08/12/Redis%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%94%A8%E5%9C%A8%E5%93%AA%E4%BA%9B%E5%9C%BA%E6%99%AF%E5%91%A2%EF%BC%9F/index.html">
 <meta property="og:site_name" content="风柳轩">
-<meta property="og:description" content="缓存分布式锁消息队列从简到繁，Redis有多种功能可以实现消息队列的功能。 使用List数据结构在Redis的List数据结构是一个双向链表，容易模拟出队列效果。利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。 List消息队列的优点：  不受JVM内存上限的限制 基于Redis的持久化">
+<meta property="og:description" content="缓存缓存更新策略缓存持久化双写一致性问题缓存穿透缓存击穿缓存雪崩分布式锁消息队列从简到繁，Redis有多种功能可以实现消息队列的功能。 使用List数据结构在Redis的List数据结构是一个双向链表，容易模拟出队列效果。利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。 List消息队列">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-12T02:02:00.000Z">
-<meta property="article:modified_time" content="2024-08-12T23:32:10.971Z">
+<meta property="article:modified_time" content="2024-08-13T02:56:56.204Z">
 <meta property="article:author" content="Willow Kaze">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.4k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          10 分钟
+          12 分钟
         
       </span>
     
@@ -272,7 +272,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><p>从简到繁，Redis有多种功能可以实现消息队列的功能。</p>
+                <h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="缓存更新策略"><a href="#缓存更新策略" class="headerlink" title="缓存更新策略"></a>缓存更新策略</h2><h2 id="缓存持久化"><a href="#缓存持久化" class="headerlink" title="缓存持久化"></a>缓存持久化</h2><h2 id="双写一致性问题"><a href="#双写一致性问题" class="headerlink" title="双写一致性问题"></a>双写一致性问题</h2><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><p>从简到繁，Redis有多种功能可以实现消息队列的功能。</p>
 <h2 id="使用List数据结构"><a href="#使用List数据结构" class="headerlink" title="使用List数据结构"></a>使用List数据结构</h2><p>在Redis的List数据结构是一个双向链表，容易模拟出队列效果。<br>利用LPUSH&#x2F;RPOP，或者RPUSH&#x2F;LPOP来实现，没有消息时会返回null。<br>如果需要实现阻塞队列，建议使用BRPOP或者BLPOP。</p>
 <p>List消息队列的优点：</p>
 <ul>
@@ -306,7 +306,14 @@
 <li>可以阻塞读取</li>
 <li>有消息漏读风险</li>
 </ul>
-<h1 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h1><p>Redis中的有序集合SORTEDSET或ZSET非常适合各类排行榜,其存储</p>
+<h3 id="Stream消费组模式"><a href="#Stream消费组模式" class="headerlink" title="Stream消费组模式"></a>Stream消费组模式</h3><p>将多个消费者划分到一个组里，监听同一个队列。消费者之间是竞争关系。</p>
+<ul>
+<li>消息分流：队列中的消息分流给组内不同的消费者，而不是重复消费</li>
+<li>消息标示：消费者组维护一个标识，记录最后一个被读取的消息，确保每一个消息都被消费</li>
+<li>消息确认：消费者获取消息后，消息处于pending状态，并存入一个pending-list。当处理完成后需要通过XACK来确认消息，标记消息为已处理，才会从pending-list移除。</li>
+</ul>
+<h1 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h1><p>Redis中的有序集合SORTEDSET或ZSET非常适合各类排行榜,其存储唯一元素，并且关联一个分数，通过该分数为集合中的成员进行排序。底层实现通过跳表和哈希表进行。</p>
+<p>排行榜功能的实现的方法是：<code>ZADD</code>命令将新的成员及其分数添加到有序集合中。如果有成员的分数发生变化，使用<code>ZADD</code>操作进行更新。使用<code>ZRANK</code>和<code>ZREVRANK</code>命令查询成员的排名。<code>ZRANGE</code>和<code>ZREVRANGE</code>获取正序或逆序的成员列表。</p>
 <h1 id="地理位置计算"><a href="#地理位置计算" class="headerlink" title="地理位置计算"></a>地理位置计算</h1><p>Redis3.2版本之后加入来GEO数据结构的支持，允许存储地理坐标信息，有利于根据经纬度检索数据</p>
 <table>
 <thead>
